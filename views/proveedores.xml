@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="view_proveedores_form" model="ir.ui.view">
+            <field name="name">tienda.proveedores.form</field>
+            <field name="model">tienda.proveedores</field>
+            <field name="arch" type="xml">
+                <form string="Proveedores">
+                    <sheet>
+                        <group>
+                            <field name="id" />
+                            <field name="nombre" />
+                            <field name="dni" />
+                            <field name="telefono" />
+                            <field name="anticulo" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="view_proveedores_tree" model="ir.ui.view">
+            <field name="name">tienda.proveedores.tree</field>
+            <field name="model">tienda.proveedores</field>
+            <field name="arch" type="xml">
+                <tree string="Proveedores">
+                    <field name="id" />
+                    <field name="nombre" />
+                    <field name="dni" />
+                    <field name="telefono" />
+                    <field name="anticulo" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_view_proveedores" model="ir.actions.act_window">
+            <field name="name">Proveedores</field>
+            <field name="res_model">tienda.proveedores</field>
+            <field name="view_type">form</field>
+            <field name="view_model">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crea un nuevo proveedor</p>
+            </field>
+        </record>
+
+
+        <record id="view_proveedores_search" model="ir.ui.view">
+                <field name="name">Busqueda proveedor</field>
+                <field name="model">tienda.proveedores</field>
+                <field name="arch" type="xml">
+                    <search>
+                         <field name="id" />
+                        <field name="nombre" />
+                        <field name="dni" />
+                    </search>
+                </field>
+        </record>
+
+        <!--Menus-->
+        <menuitem id="tienda_menu_root" name="Tienda Vitorio" />
+        <menuitem id="action_tienda_proveedores_menu" name="Proveedores" parent="tienda_menu_root" action="action_view_proveedores"/>
+
+    </data>
+</odoo>

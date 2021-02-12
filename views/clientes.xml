@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+        <!--Form View-->
+        <record id="view_clientes_form" model="ir.ui.view">
+            <field name="name">tienda.clientes.form</field>
+            <field name="model">tienda.clientes</field>
+            <field name="arch" type="xml">
+                <form string="Clientes">
+                    <sheet>
+                        <group>
+                            <field name="id" />
+                            <field name="nombre" />
+                            <field name="apellidos" />
+                            <field name="dni" />
+                            <field name="poblacion" />
+                            <field name="direccion" />
+                            <field name="articulo" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="view_clientes_tree" model="ir.ui.view">
+            <field name="name">tienda.clientes.tree</field>
+            <field name="model">tienda.clientes</field>
+            <field name="arch" type="xml">
+                <tree string="Clientes">
+                    <field name="id" />
+                    <field name="nombre" />
+                    <field name="apellidos" />
+                    <field name="dni" />
+                    <field name="poblacion" />
+                    <field name="direccion" />
+                    <field name="articulo" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_view_clientes" model="ir.actions.act_window">
+            <field name="name">Clientes</field>
+            <field name="res_model">tienda.clientes</field>
+            <field name="view_type">form</field>
+            <field name="view_model">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crea un nuevo cliente</p>
+            </field>
+        </record>
+
+
+        <record id="view_clientes_search" model="ir.ui.view">
+                <field name="name">Busqueda clientes</field>
+                <field name="model">tienda.clientes</field>
+                <field name="arch" type="xml">
+                    <search>
+                        <field name="id" />
+                        <field name="nombre" />
+                        <field name="apellidos" />
+                        <field name="dni" />
+                    </search>
+                </field>
+        </record>
+
+        <!--Menus-->
+        <menuitem id="tienda_menu_root" name="Tienda Vitorio" />
+        <menuitem id="action_tienda_clientes_menu" name="Clientes" parent="tienda_menu_root" action="action_view_clientes"/>
+
+    </data>
+</odoo>
